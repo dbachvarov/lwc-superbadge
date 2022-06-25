@@ -1,0 +1,14 @@
+<template>
+    <template if:false={record.data}>
+        False
+    </template>
+    <lightning-card title="Record Id" >
+        <p>Record Id: {recordId}</p>
+        <lightning-record-view-form
+            record-id={recordId}
+            object-api-name={boatObject}>
+            <lightning-formatted-text value={nameValue} class="slds-text-heading_large"></lightning-formatted-text>
+        </lightning-record-view-form>
+        
+    </lightning-card>
+</template>
