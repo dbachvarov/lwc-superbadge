@@ -4,7 +4,6 @@ import getBoatTypes from '@salesforce/apex/BoatDataService.getBoatTypes'
 // imports
 // import getBoatTypes from the BoatDataService => getBoatTypes method';
 export default class BoatSearchForm extends LightningElement {
-    @track 
     selectedBoatTypeId = '';
     
     // Private

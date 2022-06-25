@@ -5,10 +5,10 @@
     <targets>
         <target>lightning__AppPage</target>
         <target>lightning__RecordPage</target>
-        <target>lightning__RecordAction</target>
     </targets>
     <targetConfigs>
         <targetConfig targets="lightning__RecordPage">
+            <property label="Enter the property you want to compare by" name="similarBy" type="String" datasource="Type,Price,Length"  />
             <objects>
                 <object>Boat__c</object>
             </objects>

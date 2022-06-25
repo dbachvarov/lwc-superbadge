@@ -1,10 +1,9 @@
 import { LightningElement, api } from 'lwc';
-const TILE_WRAPPER_SELECTED_CLASS= 'tile-wrapper selected';
-const TILE_WRAPPER_UNSELECTED_CLASS='tile-wrapper';
+const TILE_WRAPPER_SELECTED_CLASS= "tile-wrapper selected";
+const TILE_WRAPPER_UNSELECTED_CLASS="tile-wrapper";
 // imports
 export default class BoatTile extends LightningElement {
     @api boat;
-
     @api selectedBoatId 
     
     // Getter for dynamically setting the background image for the picture
@@ -12,16 +11,15 @@ export default class BoatTile extends LightningElement {
         return `background-image:url(${this.boat.Picture__c})`;  
     }
     
-    // Getter for dynamically setting the tile class based on whether the
-    // current boat is selected
     @api
     get tileClass() {
-        return this.selectedBoatId ? this.TILE_WRAPPER_SELECTED_CLASS :this.TILE_WRAPPER_UNSELECTED_CLASS;
-     }
+        //return this.selectedBoatId ? this.TILE_WRAPPER_SELECTED_CLASS :this.TILE_WRAPPER_UNSELECTED_CLASS;
+        return this.selectBoatId ==this.boat.Id ? TILE_WRAPPER_SELECTED_CLASS :TILE_WRAPPER_UNSELECTED_CLASS;
+    }
     
     // Fires event with the Id of the boat that has been selected.
-    selectBoat(event) { 
-        this.selectedBoatId = this.boat.Id;
+    selectBoat() { 
+        this.selectedBoatId = !this.selectedBoatId;
         const eventSelect = new CustomEvent('boatselect', { detail:{boatId:this.boat.Id} });
         this.dispatchEvent(eventSelect);
     }
